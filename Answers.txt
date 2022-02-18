@@ -1,0 +1,125 @@
+Javascript:
+
+1. What is your favourite new javascript feature and why?	
+
+   The "globalThis" is my favourite feature.
+   Because it allows me to access the global object anywhere.
+
+2. Explain an interesting way in which you have used this javascript feature.
+
+   On the different enviornment, we use different global object.
+   Up till now we have used a function to return the appropriate global object
+   In the case to access the global object from different environment, I fill a little difficult to access them.	
+   GlobalThis is available in various platform, interacting with the global object becomes much simpler!
+
+3. Is there any difference between regular function syntax and the shorter arrow function syntax? (Write the answer in your own words)
+
+  We shuold use this keyword to access the regular function whereas the arrow function syntax is out of need to use this keyword.
+
+4. What is the difference between ‘myFunctionCall(++foo)’   and  ‘myFunctionCall(foo++)’
+
+  ‘myFunctionCall(++foo)’ use the increase of "foo" in the function whereas ‘myFunctionCall(foo++)’ use the original value of "foo".
+  But "foo" is increased by the ‘myFunctionCall(foo++)’;
+
+5. In your own words, explain what a javascript ‘class’ is and how it differs from a function.
+
+   I think a javascript ‘class’  is a template of JavaScript objects so classes has constructor.
+   But a function is not a template and doesn't have constructor.
+
+CSS
+6. In your own words, explain css specificity.
+
+   Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of CSS selectors.
+
+   Specificity is a weight that is applied to a given CSS declaration, determined by the number of each selector type in the matching selector. When multiple declarations have equal specificity, the last declaration found in the CSS is applied to the element. Specificity only applies when the same element is targeted by multiple declarations. As per CSS rules, directly targeted elements will always take precedence over rules which an element inherits from its ancestor.
+
+
+7. In your own words, explain, what is ‘!important’ in css.  Also how does it work?  Are there any special circumstances when using it, where it’s behaviour might not be what you expect?
+
+   1) The !important rule in CSS is used to add more importance to a property/value than normal.
+
+   In fact, if you use the !important rule, it will override ALL previous styling rules for that specific property on that element!
+
+   2) Let us look at an example:
+--------------------
+   #myid {
+      background-color: blue;
+   }
+
+   .myclass {
+      background-color: gray;
+   }
+
+  p {
+     background-color: red !important;
+  }
+
+  Example Explained
+
+  In the example above. all three paragraphs will get a red background color, even though the ID selector and the class selector has a higher specificity. The !important rule overrides the background-color property in both cases.
+
+8. What is your prefered layout system: inline-block, floating + clearing, flex, grid, other?  And why?
+
+  1) inline-block : 
+
+    "inline-block" is to display list items horizontally instead of vertically. 
+
+  2) floating + clearing
+
+    The CSS float property specifies how an element should float.
+    The CSS clear property specifies what elements can float beside the cleared element and on which side.
+
+    When we use the float property, and we want the next element below (not on right or left), we will have to use the clear property.
+    The clear property specifies what should happen with the element that is next to a floating element.
+    The clear property can have one of the following values:
+    none - The element is not pushed below left or right floated elements. This is default
+    left - The element is pushed below left floated elements
+    right - The element is pushed below right floated elements
+    both - The element is pushed below both left and right floated elements
+    inherit - The element inherits the clear value from its parent
+    When clearing floats, you should match the clear to the float: If an element is floated to the left, then you should clear to the left. Your floated element will continue to float, but the cleared element will appear below it on the web page.
+
+   3) flex : 
+   Let all the flexible items be the same length, regardless of its content
+
+    4) grid : 
+    I will explain by follwing example.
+    Make a three columns grid layout where the first row is 150px high.
+
+   .grid-container {
+   display: grid;
+   grid: 150px / auto auto auto;
+   }
+
+9. Are negative margins legal and what do they do (margin: -20px)?
+
+   1) Are negative margins legal?
+   Yes, negative margins are legal.
+   2) what do they do (margin: -20px)?
+   This pull and move elements from normal position by 20px.
+
+10 . If a <div/> has no margin or other styling and a <p/> tag inside of it has a margin top of some kind, the margin from the <p/> tag will show up on the div instead (the margin will show above the div not inside of it), why is this?  What are the different things that can be done to prevent it?
+ 
+   This is because there is no parent-child relationship between div and p tag. (5_1.png)
+   Solution: Add position: relative to <div> tag and position: absolute, to <p> tag to emphasize the parent-child relationship between div and p tag. (5_2.png)
+
+
+Unit tests:
+
+11. What technologies do you use to unit test your react components?
+
+   I have used Jest or Cypress as a test runner and react-testing-library as a test utility.
+
+12. Are there any pitfalls associated with this technology that have caused you difficulty in the past?
+
+    When doing integration tests, sometimes the tests fail.
+    In this case, you need to check which component is written the wrong way.
+    Sometimes multiple components are written the wrong way.
+    So it's a bit difficult to pick up the broken parts.
+
+
+13. How do you test in your unit tests to see if the correct properties are being passed to child components.
+
+   I think to set up a mocked component is a good way.
+   The first thing is the component that is to be tested needs to be mocked.
+   And then the props of the ParentComponent should be set and then an expect is put in place for checking the passed props.
